@@ -14,7 +14,7 @@ const Footer = class extends React.Component {
           <img
             src={logo}
             alt="Cornerstone Roofing"
-            style={{ padding: "1em" }}
+            style={{ "padding-bottom": "1em" }}
           />
         </div>
         <div className="content has-text-centered has-background-black has-text-white-ter">
