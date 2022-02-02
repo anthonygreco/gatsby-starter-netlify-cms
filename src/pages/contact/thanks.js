@@ -4,11 +4,11 @@ import Layout from "../../components/Layout";
 // eslint-disable-next-line
 export default () => (
   <Layout>
-    <section className="section">
+    <section className="section min-page-height">
       <div className="container">
         <div className="content">
           <h1>Thank you!</h1>
-          <p>This is a custom thank you page for form submissions</p>
+          <p>General response times are within 24 to 48 hours.</p>
         </div>
       </div>
     </section>
