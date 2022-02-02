@@ -39,7 +39,7 @@ export default class Index extends React.Component {
         <section className="section min-page-height">
           <div className="container">
             <div className="content">
-              <h1>Tell us all your problems, we'll fix them all &emdash; if they're roofing issues. 😂</h1>
+              <h1>We're Here To Help</h1>
               <form
                 name="contact"
                 method="post"
