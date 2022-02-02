@@ -36,14 +36,14 @@ export default class Index extends React.Component {
   render() {
     return (
       <Layout>
-        <section className="section">
+        <section className="section min-page-height">
           <div className="container">
             <div className="content">
-              <h1>Contact</h1>
+              <h1>Tell us all your problems, we'll fix them all &emdash; if they're roofing issues. 😂</h1>
               <form
                 name="contact"
                 method="post"
-                action="/contact/thanks/"
+                action="/contact/thanks"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 onSubmit={this.handleSubmit}
@@ -52,7 +52,7 @@ export default class Index extends React.Component {
                 <input type="hidden" name="form-name" value="contact" />
                 <div hidden>
                   <label>
-                    Don’t fill this out:{" "}
+                    Don't fill this out:{" "}
                     <input name="bot-field" onChange={this.handleChange} />
                   </label>
                 </div>
