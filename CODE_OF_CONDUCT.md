@@ -1,5 +1,4 @@
 # Contributor Covenant Code of Conduct
-test2
 
 ## Our Pledge
 
