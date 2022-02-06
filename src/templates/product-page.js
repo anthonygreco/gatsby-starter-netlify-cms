@@ -171,8 +171,6 @@ export const productPageQuery = graphql`
             }
             text
           }
-          heading
-          description
         }
         main {
           heading
