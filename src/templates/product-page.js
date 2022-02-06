@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import Layout from "../components/Layout";
 import Features from "../components/Features";
+import Projects from "../components/Projects";
 import Testimonials from "../components/Testimonials";
 import Pricing from "../components/Pricing";
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
@@ -40,6 +41,7 @@ export const ProductPageTemplate = ({
             </div>
             <div className="columns">
               <div className="column is-10 is-offset-1">
+                <Projects items={} />
                 <Features gridItems={intro.blurbs} /> 
                 <div className="columns">
                   <div className="column is-7">
