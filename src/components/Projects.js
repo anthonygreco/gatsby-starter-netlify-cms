@@ -6,12 +6,6 @@ import ImageViewer from "react-simple-image-viewer";
 const Projects = ({ items }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
-  const images = [
-    "http://placeimg.com/1200/800/nature",
-    "http://placeimg.com/800/1200/nature",
-    "http://placeimg.com/1920/1080/nature",
-    "http://placeimg.com/1500/500/nature"
-  ];
 
   const openImageViewer = useCallback((index) => {
     setCurrentImage(index);
@@ -25,7 +19,7 @@ const Projects = ({ items }) => {
   
   return (
     <div>
-      {images.map((src, index) => (
+      {items.map((src, index) => (
         <img
           src={src}
           onClick={() => openImageViewer(index)}
@@ -38,7 +32,7 @@ const Projects = ({ items }) => {
 
       {isViewerOpen && (
         <ImageViewer
-          src={images}
+          src={items}
           currentIndex={currentImage}
           onClose={closeImageViewer}
           disableScroll={false}

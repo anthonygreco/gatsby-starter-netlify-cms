@@ -25,6 +25,13 @@ export const ProductPageTemplate = ({
   const heroImage = getImage(image) || image;
   const fullWidthImage = getImage(fullImage) || fullImage;
 
+  const items = [
+    "http://placeimg.com/1200/800/nature",
+    "http://placeimg.com/800/1200/nature",
+    "http://placeimg.com/1920/1080/nature",
+    "http://placeimg.com/1500/500/nature"
+  ];
+
   return (
     <div className="content min-page-height">
       <FullWidthImage img={heroImage} title={title} />
@@ -41,7 +48,7 @@ export const ProductPageTemplate = ({
             </div>
             <div className="columns">
               <div className="column is-10 is-offset-1">
-                <Projects items={} />
+                <Projects items={items} />
                 <Features gridItems={intro.blurbs} /> 
                 <div className="columns">
                   <div className="column is-7">
