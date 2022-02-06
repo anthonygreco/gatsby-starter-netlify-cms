@@ -174,7 +174,11 @@ export const productPageQuery = graphql`
         }
         projects {
           projects {
-            image
+            image {
+              childImageSharp {
+                gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+              }
+            }
             text
           }
         }
