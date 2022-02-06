@@ -67,8 +67,6 @@ collections:
               widget: object,
               fields:
                 [
-                  { label: Heading, name: heading, widget: string },
-                  { label: Description, name: description, widget: text },
                   {
                     label: Blurbs,
                     name: blurbs,
@@ -145,8 +143,6 @@ collections:
             }
           - { label: Title, name: title, widget: string }
           - { label: Image, name: image, widget: image }
-          - { label: Heading, name: heading, widget: string }
-          - { label: Description, name: description, widget: string }
           - {
               label: Intro,
               name: intro,
