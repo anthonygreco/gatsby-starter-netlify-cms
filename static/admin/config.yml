@@ -240,3 +240,43 @@ collections:
                   },
                 ],
             }
+      - file: "src/pages/projects/index.md"
+        label: "Projects Page"
+        name: "projects"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "projects-page",
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Image, name: image, widget: image }
+          - {
+              label: Main,
+              name: main,
+              widget: object,
+              fields:
+                [
+                  { label: Heading, name: heading, widget: string },
+                  { label: Description, name: description, widget: text }
+                ],
+            }
+          - {
+              label: Projects,
+              name: projects,
+              widget: object,
+              fields:
+                [
+                  {
+                    label: Projects,
+                    name: projects,
+                    widget: list,
+                    fields:
+                      [
+                        { label: Image, name: image, widget: image },
+                        { label: Text, name: text, widget: text },
+                      ],
+                  },
+                ],
+            }
