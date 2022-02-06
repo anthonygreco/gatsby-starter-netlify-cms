@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import PreviewCompatibleImage from "./PreviewCompatibleImage";
 import ImageViewer from "react-simple-image-viewer";
 
-const Projects = ({ items }) => {
+const Projects = ({ items, preview }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
 
-  const openImageViewer = useCallback((index) => {
-    setCurrentImage(index);
+  const openImageViewer = useCallback(() => {
+    setCurrentImage(0);
     setIsViewerOpen(true);
   }, []);
 
@@ -19,23 +19,14 @@ const Projects = ({ items }) => {
   
   return (
     <div>
-      {items.map((src, index) => (
-        <img
-          src={src}
-          onClick={() => openImageViewer(index)}
-          width="300"
-          key={index}
-          style={{ margin: "2px" }}
-          alt=""
-        />
-      ))}
+      <img src={preview} onClick={openImageViewer} alt="" />
 
       {isViewerOpen && (
         <ImageViewer
           src={items}
           currentIndex={currentImage}
           onClose={closeImageViewer}
-          disableScroll={false}
+          disableScroll={true}
           backgroundStyle={{
             backgroundColor: "rgba(0,0,0,0.9)"
           }}
