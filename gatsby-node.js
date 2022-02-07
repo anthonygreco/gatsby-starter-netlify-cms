@@ -72,11 +72,9 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }
 
-exports.onCreateWebpackConfig = ({ rules, actions }) => {
-  console.log('rules');
-  console.log({ rules });
-  console.log('actions');
-  console.log({ actions });
+exports.onCreateWebpackConfig = ({ fullObj }) => {
+  console.log('fullObj');
+  console.log(JSON.stringify(fullObj));
   // actions.setWebpackConfig({
   //   ...rules,
   //   output: {
