@@ -3,14 +3,11 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import Layout from "../components/Layout";
-import Features from "../components/Features";
-import Projects from "../components/Projects";
-import Testimonials from "../components/Testimonials";
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 import FullWidthImage from "../components/FullWidthImage";
 
 // eslint-disable-next-line
-export const ProductPageTemplate = ({
+export const ServicePageTemplate = ({
   image,
   title,
   heading,
@@ -18,15 +15,6 @@ export const ProductPageTemplate = ({
   main
 }) => {
   const heroImage = getImage(image) || image;
-  
-
-  const preview = "https://placeimg.com/240/200/nature";
-  const items = [
-    "https://placeimg.com/1200/800/nature",
-    "https://placeimg.com/800/1200/nature",
-    "https://placeimg.com/1920/1080/nature",
-    "https://placeimg.com/1500/500/nature"
-  ];
 
   return (
     <div className="content min-page-height">
@@ -82,7 +70,7 @@ export const ProductPageTemplate = ({
   );
 };
 
-ProductPageTemplate.propTypes = {
+ServicePageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   heading: PropTypes.string,
@@ -90,18 +78,15 @@ ProductPageTemplate.propTypes = {
   main: PropTypes.shape({
     heading: PropTypes.string,
     description: PropTypes.string,
-    image1: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   })
 };
 
-const ProductPage = ({ data }) => {
+const ServicePage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
 
   return (
     <Layout>
-      <ProductPageTemplate
+      <ServicePageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
         heading={frontmatter.heading}
@@ -112,7 +97,7 @@ const ProductPage = ({ data }) => {
   );
 };
 
-ProductPage.propTypes = {
+ServicePage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
@@ -120,10 +105,10 @@ ProductPage.propTypes = {
   }),
 };
 
-export default ProductPage;
+export default ServicePage;
 
-export const productPageQuery = graphql`
-  query ProductPage($id: String!) {
+export const servicePageQuery = graphql`
+  query ServicePage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
@@ -137,30 +122,6 @@ export const productPageQuery = graphql`
         main {
           heading
           description
-          image1 {
-            alt
-            image {
-              childImageSharp {
-                gatsbyImageData(width: 526, quality: 92, layout: CONSTRAINED)
-              }
-            }
-          }
-          image2 {
-            alt
-            image {
-              childImageSharp {
-                gatsbyImageData(width: 526, quality: 92, layout: CONSTRAINED)
-              }
-            }
-          }
-          image3 {
-            alt
-            image {
-              childImageSharp {
-                gatsbyImageData(quality: 72, layout: FULL_WIDTH)
-              }
-            }
-          }
         }
       }
     }
