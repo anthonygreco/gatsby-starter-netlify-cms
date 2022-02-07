@@ -72,20 +72,20 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }
 
-// exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
-//   if (stage === 'build-javascript') {
-//     const config = getConfig();
-//     actions.replaceWebpackConfig({
-//       ...config,
-//       output: {
-//         filename: `[name].js`,
-//         chunkFilename: `[name].js`,
-//         path: config.output.path,
-//         publicPath: config.output.publicPath,
-//       }
-//     });
-//   }
-// }
+exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
+  if (stage === 'build-javascript') {
+    const config = getConfig();
+    actions.replaceWebpackConfig({
+      ...config,
+      output: {
+        filename: `[name].js`,
+        chunkFilename: `[name].js`,
+        path: config.output.path,
+        publicPath: config.output.publicPath,
+      }
+    });
+  }
+}
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
