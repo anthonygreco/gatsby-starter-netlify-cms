@@ -73,15 +73,19 @@ exports.createPages = ({ actions, graphql }) => {
 }
 
 exports.onCreateWebpackConfig = ({ rules, actions }) => {
-  actions.setWebpackConfig({
-    ...rules,
-    output: {
-      filename: `[name].js`,
-      chunkFilename: `[name].js`,
-      path: rules.output.path,
-      publicPath: rules.output.publicPath,
-    }
-  });
+  console.log('rules');
+  console.log({ rules });
+  console.log('actions');
+  console.log({ actions });
+  // actions.setWebpackConfig({
+  //   ...rules,
+  //   output: {
+  //     filename: `[name].js`,
+  //     chunkFilename: `[name].js`,
+  //     path: rules.output.path,
+  //     publicPath: rules.output.publicPath,
+  //   }
+  // });
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
