@@ -72,6 +72,19 @@ module.exports = {
       resolve: "gatsby-plugin-netlify-cms",
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
+        customizeWebpackConfig: (config => {
+          const newWebpackConfig = {
+            ...config,
+            output: {
+              filename: `[name].js`,
+              chunkFilename: `[name].js`,
+              path: config.output.path,
+              publicPath: config.output.publicPath,
+            },
+          };
+        
+          actions.replaceWebpackConfig(newWebpackConfig);
+        })
       },
     },
     {
