@@ -24,14 +24,25 @@ const Footer = class extends React.Component {
                 <section className="menu">
                   <ul className="menu-list">
                     <li>
-                      <Link to="/" className="navbar-item">
-                        Home
-                      </Link>
+                      <Link className="navbar-item" to="/">Home</Link>
                     </li>
                     <li>
-                      <Link className="navbar-item" to="/about">
-                        About
-                      </Link>
+                      <Link className="navbar-item" to="/about">About</Link>
+                    </li>
+                    <li>
+                      <Link className="navbar-item" to="/products">Products</Link>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+              <div className="column is-4">
+                <section className="menu">
+                  <ul className="menu-list">
+                  <li>
+                      <Link className="navbar-item" to="/projects">Projects</Link>
+                    </li>
+                    <li>
+                      <Link className="navbar-item" to="/blog">Blog</Link>
                     </li>
                   </ul>
                 </section>
@@ -40,25 +51,7 @@ const Footer = class extends React.Component {
                 <section className="menu">
                   <ul className="menu-list">
                     <li>
-                      <Link className="navbar-item" to="/products">
-                        Products
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/contact">
-                        Contact
-                      </Link>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-              <div className="column is-4">
-                <section className="menu">
-                  <ul className="menu-list">
-                    <li>
-                      <Link className="navbar-item" to="/projects">
-                        Projects
-                      </Link>
+                      <Link className="navbar-item" to="/contact">Contact</Link>
                     </li>
                   </ul>
                 </section>
