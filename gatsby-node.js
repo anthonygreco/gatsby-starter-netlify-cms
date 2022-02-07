@@ -72,18 +72,19 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }
 
-exports.onCreateWebpackConfig = (fullObj) => {
-  console.log('fullObj');
-  console.log(fullObj);
-  // actions.setWebpackConfig({
-  //   ...rules,
-  //   output: {
-  //     filename: `[name].js`,
-  //     chunkFilename: `[name].js`,
-  //     path: rules.output.path,
-  //     publicPath: rules.output.publicPath,
-  //   }
-  // });
+exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
+  if (stage === 'build-javascript') {
+    const config = getConfig();
+    actions.setWebpackConfig({
+      ...config,
+      output: {
+        filename: `[name].js`,
+        chunkFilename: `[name].js`,
+        path: config.output.path,
+        publicPath: config.output.publicPath,
+      }
+    });
+  }
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
