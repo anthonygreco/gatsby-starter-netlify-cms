@@ -3,7 +3,15 @@ import React, { useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import ImageViewer from "react-simple-image-viewer";
 
-const Projects = ({ items, projects, preview }) => {
+const preview = "https://placeimg.com/240/200/nature";
+const items = [
+  "https://placeimg.com/1200/800/nature",
+  "https://placeimg.com/800/1200/nature",
+  "https://placeimg.com/1920/1080/nature",
+  "https://placeimg.com/1500/500/nature"
+];
+
+const Projects = ({ projects }) => {
   console.log('projects', projects);
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
@@ -39,10 +47,11 @@ const Projects = ({ items, projects, preview }) => {
 };
 
 Projects.propTypes = {
-  items: PropTypes.arrayOf(
+  projects: PropTypes.arrayOf(
     PropTypes.shape({
-      image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-      text: PropTypes.string,
+      preview: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+      images: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object, PropTypes.string])),
+      text: PropTypes.string
     })
   ),
 };

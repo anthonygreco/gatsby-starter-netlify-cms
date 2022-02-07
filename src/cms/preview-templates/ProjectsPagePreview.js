@@ -5,7 +5,6 @@ import { ProjectsPageTemplate } from '../../templates/projects-page'
 const ProjectsPagePreview = ({ entry, getAsset }) => {
   const projects = entry.getIn(['data', 'projects', 'projects'])
 
-
   return (
     <ProjectsPageTemplate
       image={getAsset(entry.getIn(['data', 'image']))}

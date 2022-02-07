@@ -178,18 +178,19 @@ collections:
           - {
               label: Projects,
               name: projects,
-              widget: object,
+              widget: list,
               fields:
                 [
-                  {
-                    label: Projects,
-                    name: projects,
-                    widget: list,
-                    fields:
-                      [
-                        { label: Image, name: image, widget: image },
-                        { label: Text, name: text, widget: text },
-                      ],
+                  { label: Preview, name: preview, widget: image },
+                  { label: Images, name: images, widget: list, fields:
+                    [
+                      {
+                        label: Image,
+                        name: image,
+                        widget: image
+                      }
+                    ]
                   },
-                ],
+                  { label: Text, name: text, widget: text },
+                ]
             }
