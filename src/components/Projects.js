@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from "react";
 import PropTypes from "prop-types";
-import PreviewCompatibleImage from "./PreviewCompatibleImage";
 import ImageViewer from "react-simple-image-viewer";
 
 const Projects = ({ items, projects, preview }) => {
