@@ -72,6 +72,19 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }
 
+exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
+  const newWebpackConfig = {
+    ...getConfig(),
+    output: {
+      filename: `[name].js`,
+      chunkFilename: `[name].js`,
+      path: getConfig().output.path,
+      publicPath: getConfig().output.publicPath,
+    },
+  };
+  actions.replaceWebpackConfig(newWebpackConfig);
+}
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   fmImagesToRelative(node) // convert image paths for gatsby images
