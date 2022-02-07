@@ -48,7 +48,6 @@ export const ProductPageTemplate = ({
             </div>
             <div className="columns">
               <div className="column is-10 is-offset-1">
-                <Projects items={items} preview={preview} />
                 <Features gridItems={intro.blurbs} /> 
                 <div className="columns">
                   <div className="column is-7">
