@@ -75,7 +75,7 @@ exports.createPages = ({ actions, graphql }) => {
 exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
   if (stage === 'build-javascript') {
     const config = getConfig();
-    actions.setWebpackConfig({
+    actions.replaceWebpackConfig({
       ...config,
       output: {
         filename: `[name].js`,
