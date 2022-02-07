@@ -10,13 +10,13 @@ const Footer = class extends React.Component {
   render() {
     return (
       <footer className="footer has-background-off-black has-text-white-ter">
-        <div className="content has-text-centered">
+        {/* <div className="content has-text-centered">
           <img
             src={logo}
             alt="Cornerstone Roofing"
             style={{ "padding-bottom": "1em" }}
           />
-        </div>
+        </div> */}
         <div className="content has-text-centered has-background-off-black has-text-white-ter">
           <div className="container has-background-off-black has-text-white-ter">
             <div style={{ maxWidth: "100vw" }} className="columns">
