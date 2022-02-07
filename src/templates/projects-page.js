@@ -104,7 +104,7 @@ export const ProjectsPageQuery = graphql`
         title
         image {
           childImageSharp {
-            gatsbyImageData(width: 150, quality: 80, layout: CONSTRAINED)
+            gatsbyImageData(quality: 100, layout: FULL_WIDTH)
           }
         }
         main {
