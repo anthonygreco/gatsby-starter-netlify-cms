@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import PreviewCompatibleImage from "./PreviewCompatibleImage";
 import ImageViewer from "react-simple-image-viewer";
 
-const Projects = ({ items, preview }) => {
+const Projects = ({ items, projects, preview }) => {
+  console.log('projects', projects);
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
 

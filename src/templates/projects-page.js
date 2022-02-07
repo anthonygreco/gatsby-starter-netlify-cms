@@ -11,7 +11,8 @@ export const ProjectsPageTemplate = ({
   image,
   title,
   heading,
-  description
+  description,
+  projects
 }) => {
   const heroImage = getImage(image) || image;
 
@@ -39,7 +40,7 @@ export const ProjectsPageTemplate = ({
             </div>
             <div className="columns">
               <div className="column is-10 is-offset-1">
-                <Projects items={items} preview={preview} />
+                <Projects items={items} projects={projects} preview={preview} />
               </div>
             </div>
           </div>
