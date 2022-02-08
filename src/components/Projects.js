@@ -25,7 +25,7 @@ const Projects = ({ projects }) => {
     setCurrentImage(0);
     setIsViewerOpen(false);
   };
-  
+
   return (
     <div>
       <img src={preview} onClick={openImageViewer} alt="" />
