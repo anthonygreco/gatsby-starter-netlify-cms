@@ -1,6 +1,6 @@
 ---
 title: Projects
-image: /img/residential-shingles-installation.jpg
+image: /img/foreman-with-arms-crossed.jpg
 main:
   heading: Heading...
   description: Description...
