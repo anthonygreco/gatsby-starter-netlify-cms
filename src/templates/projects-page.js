@@ -14,6 +14,7 @@ export const ProjectsPageTemplate = ({
     description,
     projects
 }) => {
+    console.log('passing projects', projects);
     const heroImage = getImage(image) || image;
     return (
         <div className="content min-page-height">
