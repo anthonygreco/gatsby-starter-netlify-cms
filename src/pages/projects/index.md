@@ -1,11 +1,11 @@
 ---
-templateKey: 'projects-page'
+templateKey: projects-page
 path: /projects
 title: Projects
 image: /img/foreman-with-arms-crossed.jpg
 main:
   heading: Heading
-  description: >
+  description: |
     Description...
 projects:
   - preview: /img/project-a-preview.jpg
@@ -16,6 +16,6 @@ projects:
       - image: /img/project-a-4.jpg
       - image: /img/project-a-5.jpg
       - image: /img/project-a-6.jpg
-    text: >
-      Prject Description...
+    text: |
+      Project Description...
 ---
