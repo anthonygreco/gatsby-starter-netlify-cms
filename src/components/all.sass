@@ -10,6 +10,9 @@ $primary-invert: $cornerstone-red-invert
 $body-color: #333
 $black: #2b2523
 
+.navbar
+  z-index: 1
+
 .navbar .navbar-menu
   box-shadow: none !important
 
@@ -123,7 +126,8 @@ $menu-label-color: $white-ter
   margin: 0 1.5em 0 0
 
 .min-page-height
-  min-height: calc(100vh - 313px)
+  // min-height: calc(100vh - 313px) with image logo
+  min-height: calc(100vh - 212px) // without image logo
 
 .has-background-off-black
   background-color: #101010 !important
