@@ -74,34 +74,55 @@ ProjectsPage.propTypes = {
     }),
 };
 export default ProjectsPage;
+
+// export const ProjectsPageQuery = graphql`
+//   query ProjectsPage($id: String!) {
+//         markdownRemark(id: { eq: $id }) {
+//           frontmatter {
+//             title
+//         image {
+//               childImageSharp {
+//                 gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+//           }
+//         }
+//         main {
+//               heading
+//           description
+//         }
+//         projects {
+//               preview {
+//                 childImageSharp {
+//                   gatsbyImageData(width: 150, quality: 70, layout: CONSTRAINED)
+//             }
+//           }
+//           images {
+//                 childImageSharp {
+//                   gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+//             }
+//           }
+//           text
+//         }
+//       }
+//     }
+//   }
+// `;
+
 export const ProjectsPageQuery = graphql`
-  query ProjectsPage($id: String!) {
-        markdownRemark(id: { eq: $id }) {
-          frontmatter {
-            title
-        image {
-              childImageSharp {
+query ProjectsPageTemplate {
+    markdownRemark(frontmatter: { templateKey: { eq: "service-page" } }) {
+        frontmatter {
+          title
+          image {
+            childImageSharp {
                 gatsbyImageData(quality: 100, layout: FULL_WIDTH)
-          }
-        }
-        main {
-              heading
-          description
-        }
-        projects {
-              preview {
-                childImageSharp {
-                  gatsbyImageData(width: 150, quality: 70, layout: CONSTRAINED)
+                }
             }
-          }
-          images {
-                childImageSharp {
-                  gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+            heading
+            description
+            main {
+                heading
+                description
             }
-          }
-          text
         }
-      }
     }
-  }
-`;
+}`;

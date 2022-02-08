@@ -33,9 +33,9 @@ export const ServicePageTemplate = ({
               <div className="column is-10 is-offset-1">
                 <div className="columns">
                   <div className="column is-7">
-                    <h3 className="has-text-weight-semibold is-size-3">
+                    <h4 className="has-text-weight-semibold is-size-3">
                       {main.heading}
-                    </h3>
+                    </h4>
                     <p>{main.description}</p>
                   </div>
                 </div>
@@ -85,23 +85,43 @@ ServicePage.propTypes = {
 
 export default ServicePage;
 
+// export const servicePageQuery = graphql`
+//   query ServicePage($id: String!) {
+//     markdownRemark(id: { eq: $id }) {
+//       frontmatter {
+//         title
+//         image {
+//           childImageSharp {
+//             gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+//           }
+//         }
+//         heading
+//         description
+//         main {
+//           heading
+//           description
+//         }
+//       }
+//     }
+//   }
+// `;
+
 export const servicePageQuery = graphql`
-  query ServicePage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      frontmatter {
-        title
-        image {
-          childImageSharp {
-            gatsbyImageData(quality: 100, layout: FULL_WIDTH)
-          }
+query ServicePageTemplate {
+    markdownRemark(frontmatter: { templateKey: { eq: "service-page" } }) {
+        frontmatter {
+            title
+            image {
+                childImageSharp {
+                    gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+                }
+            }
+            heading
+            description
+            main {
+                heading
+                description
+            }
         }
-        heading
-        description
-        main {
-          heading
-          description
-        }
-      }
     }
-  }
-`;
+}`;
