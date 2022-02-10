@@ -7,8 +7,7 @@ const ProjectsPagePreview = ({ entry, getAsset }) => {
     <ProjectsPageTemplate
       image={getAsset(entry.getIn(['data', 'image']))}
       title={entry.getIn(['data', 'title'])}
-      heading={entry.getIn(['data', 'main', 'heading'])}
-      description={entry.getIn(['data', 'main', 'description'])}
+      main={entry.getIn(['data', 'main'])}
       projects={entry.getIn(['data', 'projects'])}
     />
   )

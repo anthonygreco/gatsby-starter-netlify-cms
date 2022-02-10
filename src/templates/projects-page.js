@@ -10,12 +10,12 @@ import FullWidthImage from "../components/FullWidthImage";
 export const ProjectsPageTemplate = ({
     image,
     title,
-    heading,
-    description,
+    main,
     projects
 }) => {
-    console.log('passing projects', projects);
+    console.log('projects', projects);
     const heroImage = getImage(image) || image;
+
     return (
         <div className="content min-page-height">
             <FullWidthImage img={heroImage} title={title} />
@@ -23,11 +23,15 @@ export const ProjectsPageTemplate = ({
                 <div className="container">
                     <div className="section">
                         <div className="columns">
-                            <div className="column is-7 is-offset-1">
-                                <h3 className="has-text-weight-semibold is-size-2">
-                                    {heading}
-                                </h3>
-                                <p>{description}</p>
+                            <div className="column is-10 is-offset-1">
+                                <div className="columns">
+                                    <div className="column is-7">
+                                        <h4 className="has-text-weight-semibold is-size-3">
+                                            {main.heading}
+                                        </h4>
+                                        <p>{main.description}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="columns">
@@ -44,23 +48,26 @@ export const ProjectsPageTemplate = ({
 ProjectsPageTemplate.propTypes = {
     image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     title: PropTypes.string,
-    heading: PropTypes.string,
-    description: PropTypes.string,
     main: PropTypes.shape({
         heading: PropTypes.string,
         description: PropTypes.string,
     }),
-    projects: PropTypes.array,
+    projects: PropTypes.shape({
+        preview: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+        images: PropTypes.arrayOf(
+            PropTypes.oneOfType([PropTypes.object, PropTypes.string])
+        ),
+        text: PropTypes.string
+    }),
 };
 const ProjectsPage = ({ data }) => {
     const { frontmatter } = data.markdownRemark;
+
     return (
         <Layout>
             <ProjectsPageTemplate
                 image={frontmatter.image}
                 title={frontmatter.title}
-                heading={frontmatter.heading}
-                description={frontmatter.description}
                 main={frontmatter.main}
                 projects={frontmatter.projects}
             />
@@ -76,53 +83,32 @@ ProjectsPage.propTypes = {
 };
 export default ProjectsPage;
 
-// export const ProjectsPageQuery = graphql`
-//   query ProjectsPage($id: String!) {
-//         markdownRemark(id: { eq: $id }) {
-//           frontmatter {
-//             title
-//         image {
-//               childImageSharp {
-//                 gatsbyImageData(quality: 100, layout: FULL_WIDTH)
-//           }
-//         }
-//         main {
-//               heading
-//           description
-//         }
-//         projects {
-//               preview {
-//                 childImageSharp {
-//                   gatsbyImageData(width: 150, quality: 70, layout: CONSTRAINED)
-//             }
-//           }
-//           images {
-//                 childImageSharp {
-//                   gatsbyImageData(quality: 100, layout: FULL_WIDTH)
-//             }
-//           }
-//           text
-//         }
-//       }
-//     }
-//   }
-// `;
-
 export const ProjectsPageQuery = graphql`
-query ProjectsPageTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "service-page" } }) {
+query ProjectsPage($id: String!) {
+    markdownRemark(id: { eq: $id }) {
         frontmatter {
-          title
-          image {
-            childImageSharp {
-                gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+            title
+            image {
+                childImageSharp {
+                    gatsbyImageData(quality: 100, layout: FULL_WIDTH)
                 }
             }
-            heading
-            description
             main {
                 heading
                 description
+            }
+            projects {
+                preview {
+                   childImageSharp {
+                        gatsbyImageData(width: 150, quality: 80, layout: CONSTRAINED)
+                    }
+                }
+                images {
+                    childImageSharp {
+                        gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+                    }
+                },
+                text
             }
         }
     }
