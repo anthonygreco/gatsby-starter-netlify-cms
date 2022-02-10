@@ -4,9 +4,9 @@ path: /projects
 title: Projects
 image: /img/foreman-with-arms-crossed.jpg
 main:
-  heading: Heading
+  heading: Heading...
   description: |
-    Description...
+    Description
 projects:
   - preview: /img/project-a-preview.jpg
     images:
